@@ -1,0 +1,36 @@
+.formContainer {
+  margin-top: 2rem;
+  border: 2px solid gray;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 720px;
+}
+.formContainer div,
+.formContainer input {
+  margin-top: 1.2rem;
+}
+.formContainer input{
+    border-radius: 5px;
+    border: 2px solid gray;
+    transition: all 0.2s ease-in;
+    text-align: center;
+}
+.formContainer input:focus{
+    transform: scale(1.2);
+}
+.btnContainer{
+    display: flex;
+    justify-content: space-around;
+}
+.btnContainer button{
+    background: none;
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 10px 1.2rem;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+.btnContainer button:hover{
+    background-color: gray;
+    color: white;
+}

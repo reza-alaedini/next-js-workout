@@ -1,0 +1,27 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid gray;
+  overflow: hidden;
+  margin: 2rem;
+  border-radius: 10px;
+}
+.cardContainer button {
+  border: none;
+  width: 150px;
+  margin: 2rem;
+  background: none;
+  border: 2px solid gray;
+  border-radius: 5px;
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  font-size: 13px;
+  font-weight: bold;
+}
+.cardContainer button:hover {
+  background-color: gray;
+  color: white;
+}

@@ -1,0 +1,29 @@
+.container {
+  background-color: #631b29;
+  padding: 2rem 3rem;
+  font-size: 2rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+.container ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.container ul li {
+  display: flex;
+  transition: all 0.3s ease-in;
+  color: white;
+}
+.rightNav {
+  display: flex;
+}
+.rightNav li {
+  padding: 0 1rem;
+  color: #e7a4b1 !important;
+  transition: all 0.3s ease-in;
+}
+.rightNav li:hover {
+  color: #96616c !important;
+}

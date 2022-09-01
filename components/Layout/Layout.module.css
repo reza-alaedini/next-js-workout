@@ -1,0 +1,20 @@
+.mainContainer {
+  width: 100%;
+}
+
+.children {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin: auto;
+}
+
+@media (max-width: 540px) {
+  .children {
+    width: 100%;
+  }
+}
