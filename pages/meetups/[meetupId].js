@@ -1,21 +1,59 @@
-import { useRouter } from "next/router";
+import { Fragment } from "react";
+import { MongoClient, ObjectId } from "mongodb";
+
+import SingleMeetup from "../../components/singleMeetup/SingleMeetup";
 
 //Data
-import { DUMMY_DATA } from "../../components/Meetups/Meetups";
 
-const meetupId = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const router = useRouter();
-  const { meetupId } = router.query;
-
-//   console.log(DUMMY_DATA[meetupId])
-
-//   console.log(router);
+const meetupId = (props) => {
   return (
-    <div>
-      <h2>DUMMY_DATA.id[meetupId].title</h2>
-    </div>
+    <Fragment>
+      <SingleMeetup meetupData={props.meetupData} />
+    </Fragment>
   );
+};
+
+export const getStaticPaths = async () => {
+  const client = await MongoClient.connect(
+    "mongodb+srv://parsaalaeipa:AOfNeMHEK5JDaw40@parsacluster.oezwfll.mongodb.net/meetups?retryWrites=true&w=majority"
+  );
+  const db = client.db();
+  const meetupsCollection = db.collection("meetups");
+  const meetups = await meetupsCollection.find({}, { _id: 1 }).toArray();
+
+  client.close();
+
+  return {
+    fallback: false,
+    paths: meetups.map((meetup) => ({
+      params: { meetupId: meetup._id.toString() },
+    })),
+  };
+};
+
+export const getStaticProps = async (context) => {
+  const { meetupId } = context.params;
+
+  const client = await MongoClient.connect(
+    "mongodb+srv://parsaalaeipa:AOfNeMHEK5JDaw40@parsacluster.oezwfll.mongodb.net/meetups?retryWrites=true&w=majority"
+  );
+  const db = client.db();
+  const meetupsCollection = db.collection("meetups");
+
+  const selectedMeetup = await meetupsCollection.findOne({ _id: ObjectId(meetupId) });
+
+  client.close();
+
+  return {
+    props: {
+      meetupData: {
+        id: selectedMeetup._id.toString(),
+        title: selectedMeetup.title,
+        description: selectedMeetup.desc,
+        image: selectedMeetup.image,
+      },
+    },
+  };
 };
 
 export default meetupId;

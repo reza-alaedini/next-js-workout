@@ -1,6 +1,6 @@
 .formContainer {
   margin-top: 2rem;
-  border: 2px solid gray;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   padding: 2rem;
   border-radius: 10px;
   width: 720px;
@@ -14,9 +14,11 @@
     border: 2px solid gray;
     transition: all 0.2s ease-in;
     text-align: center;
+    width: 90%;
+    height: 30px;
 }
 .formContainer input:focus{
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 .btnContainer{
     display: flex;
