@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Fragment } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
