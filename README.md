@@ -1,5 +1,5 @@
 # React Meetups !
-An Example project usin Next.js for the first time
+An Example project using Next.js for the first time
 
 ## Used Package
 - react
